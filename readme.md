@@ -13,6 +13,7 @@ InLab uses [Vue](https://vuejs.org/) as its frontend framework.
 
 ### Bootstrap
 Intlab uses [Bootstrap](https://getbootstrap.com/docs/3.3/) to handle the css.
+- [Bootstrap variables](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss)
 
 ## Installing the application (for the first time)
 - Clone the Repository
