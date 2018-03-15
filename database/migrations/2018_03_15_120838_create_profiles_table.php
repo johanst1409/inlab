@@ -21,6 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('avatar_path')->nullable();
             $table->string('avatar_image')->nullable();
             $table->date('birth_date')->nullable();
+            $table->boolean('age_visible')->default(true);
             $table->text('description')->nullable();
             $table->timestamps();
         });
