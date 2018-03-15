@@ -2,9 +2,11 @@
 
 namespace App;
 
-use App\Models\Team;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
+use App\Models\Team;
+use App\Models\Profile;
 
 /*
  * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany teams()
@@ -40,5 +42,10 @@ class User extends Authenticatable
 	 */
     public function teams() {
     	return $this->belongsToMany(Team::class, 'users_teams', 'user_id');
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'id', 'user_id');
     }
 }

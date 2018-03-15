@@ -28,6 +28,8 @@ Route::group(['namespace' => 'Teams', 'prefix' => '/teams', 'as' => 'teams.'], f
 });
 
 
-Route::group(['namespace' => 'Account', 'prefix' => '/account', 'as' => 'account.'], function () {
+Route::group(['namespace' => 'Account', 'prefix' => '/account', 'as' => 'account.', 'middleware' => 'auth'], function () {
 	Route::get('/', ['uses' => 'AccountController@index', 'as' => 'index']);
+	Route::get('/edit', ['uses' => 'AccountController@edit', 'as' => 'edit']);
+	Route::put('/save', ['uses' => 'AccountController@save', 'as' => 'put']);
 });
