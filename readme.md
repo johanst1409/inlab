@@ -21,6 +21,7 @@ Intlab uses [Bootstrap](https://getbootstrap.com/docs/3.3/) to handle the css.
 - Run `php artisan key:generate`
 - Run `php artisan migrate:fresh`
 - Run `php artisan db:seed`
+- Run `php artisan storage:link`
 - Run `npm install`
 - Run `npm run dev` for development and `npm run prod` for production
 
