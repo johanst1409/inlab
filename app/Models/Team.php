@@ -11,6 +11,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Class Team
+ *
+ *  * @static @method void create(array)
+ *
+ * @package App\Models
+ */
 class Team extends Model {
 
 	use Notifiable;

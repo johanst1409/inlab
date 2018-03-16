@@ -20,11 +20,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*
-Route::get('/teams', 'teams\TeamController@index')->name('teams.index');
-*/
 Route::group(['namespace' => 'Teams', 'prefix' => '/teams', 'as' => 'teams.'], function () {
 	Route::get('/', ['uses' => 'TeamController@index', 'as' => 'index']);
+	Route::get('/create', ['uses' => 'TeamController@create', 'as' => 'create']);
+	Route::post('/create', ['uses' => 'TeamController@store', 'as' => 'create']);
+	Route::get('/{team}', ['uses' => 'TeamController@show', 'as' => 'show']);
 });
 
 

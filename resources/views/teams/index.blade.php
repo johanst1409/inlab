@@ -7,16 +7,19 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
                     <div class="panel-body">
-                        <button class="btn btn-primary">Create new team</button>
+                        <a class="btn btn-primary" href="/teams/create">Create new team</a>
                         <p>You are logged in!</p>
                     </div>
                 </div>
                 @if (count($teams) > 0)
-                    <ul>
-                        @foreach($teams as $team)
-                            <li>{{ $team->name  }}</li>
-                        @endforeach
-                    </ul>
+                    @foreach($teams as $team)
+                    <div class="panel panel-default col-md-3">
+                            <div class="panel-heading"><h4>{{ $team->name  }}</h4></div>
+                            <div class="panel-body">
+                                <a class="btn btn-primary" href="/teams/{{ $team->id }}">More information</a>
+                            </div>
+                    </div>
+                    @endforeach
                 @else
                     <p>No teams</p>
                 @endif
