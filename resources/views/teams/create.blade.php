@@ -10,7 +10,6 @@
                     <div class="form-group">
                         <label class="label">Naam</label>
                         <input class="form-control" placeholder="Naam" name="name" required/>
-                        <input type="number" hidden name="owner" value="{{$userId}}"/>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary" type="submit">Create</button>

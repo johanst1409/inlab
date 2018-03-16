@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Teams;
 
 use App\Http\Controllers\Controller;
 use App\Models\Team;
+use App\Models\UserTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +45,7 @@ class TeamController extends Controller {
 	}
 
 	public function create() {
-		return view('teams.create', ['userId' => Auth::user()->id]);
+		return view('teams.create');
 	}
 
 	/**
@@ -56,9 +57,15 @@ class TeamController extends Controller {
 		$this->validate($request, [
 			'name' => 'required|min:8'
 		]);
-		Team::create([
-			'name' => $request->input('name'),
-			'owner' => $request->input('owner')
+		$team = Team::create([
+			'name' => $request->input('name')
+		]);
+
+		$user_id = Auth::user()->id;
+		UserTeam::create([
+			'user_id' => $user_id,
+			'owner_id' => $user_id,
+			'team_id' => $team->id
 		]);
 		return redirect('/teams');
 	}

@@ -2,10 +2,10 @@
 
 namespace App;
 
+use App\Models\Team;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use App\Models\Team;
 use App\Models\Profile;
 
 /*
@@ -35,13 +35,14 @@ class User extends Authenticatable
     ];
 
 	/**
-	 * Returns a many-to-many relationship
+	 * Returns a belongs to many relationship
 	 * with inside the teams from the user.
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
 	 */
-    public function teams() {
-    	return $this->belongsToMany(Team::class, 'users_teams', 'user_id');
+    public function teams()
+    {
+	    return $this->BelongsToMany(Team::class, 'user_team', 'user_id')->latest();
     }
 
     public function profile()

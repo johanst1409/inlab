@@ -20,19 +20,29 @@ class DatabaseTeamSeeder extends Seeder
 	{
 		// $this->call(UsersTableSeeder::class);
 		DB::table('teams')->insert([
-			'name' => 'inlab collaboration',
-			'owner' => 1
+			'name' => 'inlab collaboration'
 		]);
 		DB::table('teams')->insert([
-			'name' => 'programmers team',
-			'owner' => 2
+			'name' => 'programmers team'
 		]);
-		DB::table('users_teams')->insert([
+		DB::table('user_team')->insert([
 			'user_id' => 2,
+			'owner_id' => 1,
 			'team_id' => 1
 		]);
-		DB::table('users_teams')->insert([
+		DB::table('user_team')->insert([
 			'user_id' => 1,
+			'owner_id' => 2,
+			'team_id' => 2
+		]);
+		DB::table('user_team')->insert([
+			'user_id' => 1,
+			'owner_id' => 1,
+			'team_id' => 1
+		]);
+		DB::table('user_team')->insert([
+			'user_id' => 2,
+			'owner_id' => 2,
 			'team_id' => 2
 		]);
 
