@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
 use App\User;
@@ -21,19 +22,9 @@ class Profile extends Model
     	'description'
     ];
 
-    public function getBigAvatarAttribute()
-    {
-    	return $this->avatar_path.'/big/'.$this->avatar_image;
-    }
-
-    public function getMediumAvatarAttribute()
-    {
-    	return $this->avatar_path.'/medium/'.$this->avatar_image;
-    }
-
     public function getSmallAvatarAttribute()
     {
-    	return $this->avatar_path.'/small/'.$this->avatar_image;
+    	return Storage::url($this->avatar_path.'small/'.$this->avatar_image);
     }
 
     public function getAgeAttribute()
