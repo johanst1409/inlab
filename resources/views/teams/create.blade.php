@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Create a new team</h3>
-                <form class="" method="POST" action="/teams/create">
+                <form class="" method="POST" action="{{ route('teams.create') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label class="label">Naam</label>

@@ -25,8 +25,12 @@ Route::group(['namespace' => 'Teams', 'prefix' => '/teams', 'as' => 'teams.'], f
 	Route::get('/create', ['uses' => 'TeamController@create', 'as' => 'create']);
 	Route::post('/create', ['uses' => 'TeamController@store', 'as' => 'create']);
 	Route::get('/{team}', ['uses' => 'TeamController@show', 'as' => 'show']);
-});
+	Route::post('/{team}', ['uses' => 'TeamController@invite', 'as' => 'invite']);
 
+	// Invites
+	Route::get('/invites', ['uses' => 'Teams\TeamController@invites', 'as' => 'invites']);
+
+});
 
 Route::group(['namespace' => 'Account', 'prefix' => '/account', 'as' => 'account.', 'middleware' => 'auth'], function () {
 	Route::get('/', ['uses' => 'AccountController@index', 'as' => 'index']);

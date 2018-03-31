@@ -21,6 +21,15 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('invites', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('from_id');
+			$table->integer('user_id');
+			$table->integer('team_id');
+			$table->longText('message');
+	        $table->timestamps();
+        });
     }
 
     /**

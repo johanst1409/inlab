@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Team
  *
- *  * @static @method void create(array)
+ *  @method static UserTeam[] create(Array $array)
  *
  * @package App\Models
  */

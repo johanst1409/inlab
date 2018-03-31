@@ -1,0 +1,14 @@
+#bell {
+    position: relative;
+    #bell-count {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        background: $brand-success;
+        border-radius: 50%;
+        width: 15px;
+        color: white;
+        text-align: center;
+        height: 15px;
+    }
+}

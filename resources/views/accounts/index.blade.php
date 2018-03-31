@@ -14,13 +14,13 @@
                         @else
                             <img src="http://placehold.it/350x350" class="img-responsive">
                         @endif
-
+                            <img src="http://placehold.it/350x350" class="img-responsive">
                         @if (Auth::user()->profile->age_visible && Auth::user()->profile->birth_date)
-                        {{ Auth::user()->profile->age }}
+                            {{ Auth::user()->profile->age }}
                         @endif
 
                         @if (Auth::user()->profile->country_id)
-                        {{ Auth::user()->profile->country->name }}
+                            {{ Auth::user()->profile->country->name }}
                         @endif
                     </div>
                 </div>
