@@ -52,8 +52,8 @@
                             @if(count(Auth::user()->unreadNotifications) > 0)
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown">Nofications
-                                        <span id="bell" class="fa fa-bell">
-                                            <span id="bell-count">{{ count(Auth::user()->unreadNotifications)}}</span>
+                                        <span id="bell" class="badge">
+                                            {{ count(Auth::user()->unreadNotifications)}}
                                         </span>
                                     </a>
                                     <ul class="dropdown-menu">
