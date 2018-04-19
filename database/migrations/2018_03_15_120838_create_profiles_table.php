@@ -24,6 +24,7 @@ class CreateProfilesTable extends Migration
             $table->boolean('age_visible')->default(true);
             $table->text('description')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::create('countries', function (Blueprint $table) {

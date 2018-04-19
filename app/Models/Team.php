@@ -30,4 +30,14 @@ class Team extends Model {
 	protected $fillable = [
 		'name', 'owner',
 	];
+
+	public function users()
+	{
+		return $this->hasMany(User::class, 'user_teams', 'team_id', 'user_id');
+	}
+
+	public function admin()
+	{
+		return $this->hasMany(User::class, 'user_teams', 'team_id', 'user_id')->where('user_teams.is_owner', true);
+	}
 }

@@ -19,7 +19,8 @@ class AccountController extends Controller
 
     public function index ()
     {
-    	return view('accounts.index');
+        $user = Auth::user();
+    	return view('accounts.index', compact('user'));
     }
 
     public function edit()
@@ -70,5 +71,11 @@ class AccountController extends Controller
         ]);
 
         return redirect()->route('account.index');
+    }
+
+    public function show($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+        return view('accounts.index', compact('user'));
     }
 }

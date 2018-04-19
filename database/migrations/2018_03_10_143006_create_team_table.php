@@ -13,7 +13,6 @@ class CreateTeamTable extends Migration
      */
     public function up() {
         Schema::create('teams', function (Blueprint $table) {
-            //
 	        $table->increments('id')->unique();
 	        $table->string('name');
 	        $table->timestamps();
@@ -22,7 +21,7 @@ class CreateTeamTable extends Migration
         Schema::create('user_team', function(Blueprint $table) {
 	        $table->increments('id')->unique();
 	        $table->integer('user_id');
-	        $table->integer('owner_id');
+	        $table->boolean('is_owner')->default(false);
 	        $table->integer('team_id');
 	        $table->timestamps();
         });
