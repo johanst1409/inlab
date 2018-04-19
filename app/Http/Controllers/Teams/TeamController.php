@@ -24,16 +24,6 @@ class TeamController extends Controller
 {
 
 	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
-
-	/**
 	 * Show the application dashboard.
 	 *
 	 * @return \Illuminate\Http\Response
@@ -51,9 +41,10 @@ class TeamController extends Controller
 		return view( 'teams.index', [ 'teams' => $teams ]);
 	}
 
-	public function show(Team $team)
+	public function show($team)
 	{
-		return view('teams.team', ['team' => $team ]);
+		$team = Team::where('url_name', $team)->firstOrFail();
+		return view('teams.team', compact('team'));
 	}
 
 	public function create()
@@ -72,7 +63,8 @@ class TeamController extends Controller
 			'name' => 'required|min:8'
 		]);
 		$team = Team::create([
-			'name' => $request->input('name')
+			'name' => $request->input('name'),
+			'url_name' => str_slug($request->input('name'))
 		]);
 
 		$user_id = Auth::user()->id;
@@ -84,8 +76,10 @@ class TeamController extends Controller
 		return redirect('/teams');
 	}
 
-	public function invite(Team $team, Request $request)
+	public function invite($team, Request $request)
 	{
+		$team = Team::where('url_name', $team)->firstOrFail();
+
 		$this->validate($request, [
 			'name' => 'required|min:8'
 		]);

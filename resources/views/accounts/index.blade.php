@@ -23,10 +23,12 @@
                         {{ $user->profile->country->name }}
                         @endif
 
-                        @if ($user->id == Auth::user()->id)
-                        <a href="{{ route('account.edit') }}" class="btn btn-primary">
-                            Edit
-                        </a>
+                        @if (Auth::user())
+                            @if ($user->id == Auth::user()->id)
+                            <a href="{{ route('account.edit') }}" class="btn btn-primary">
+                                Edit
+                            </a>
+                            @endif
                         @endif
                     </div>
                 </div>
