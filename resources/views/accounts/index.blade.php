@@ -37,7 +37,7 @@
                         <h2>Biography</h2>
                     </div>
                     <div class="panel-body">
-                        <p>{{ Auth::user()->profile->description }}</p>
+                        <p>{{ $user->profile->description }}</p>
                     </div>
                 </div>
             </div>

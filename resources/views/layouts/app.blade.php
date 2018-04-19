@@ -10,6 +10,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -46,6 +49,20 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            @if(count(Auth::user()->unreadNotifications) > 0)
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">Nofications
+                                        <span id="bell" class="badge">
+                                            {{ count(Auth::user()->unreadNotifications)}}
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @foreach(Auth::user()->unreadNotifications as $notification)
+                                            @include ('notifications.'. snake_case(class_basename($notification->type)))
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ title_case(Auth::user()->username) }} <span class="caret"></span>

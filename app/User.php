@@ -9,9 +9,14 @@ use App\Models\Profile;
 use App\Models\Team;
 use App\Models\UserTeam;
 
-/*
- * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany teams()
+/**
+ * @method static User where(string $column, string $compare, string $value)
+ * @method User firstOrFail()
  *
+ * @property  string $id
+ * @property  string $username
+ * @property  string $email
+ * @property  string $password
  */
 class User extends Authenticatable
 {

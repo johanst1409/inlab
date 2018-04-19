@@ -14,7 +14,14 @@ use Illuminate\Notifications\Notifiable;
 /**
  * Class Team
  *
- *  * @static @method void create(array)
+ *  @method static Team create(Array $array)
+ *  @method static Team find(integer $id);
+ *  @method static Team where(String $column_name, $value);
+ *  @method Team pluck(String $pluck_value);
+ *  @method Array toArray();
+ *
+ * @property string $name
+ * @property integer $id
  *
  * @package App\Models
  */
@@ -28,7 +35,7 @@ class Team extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-		'name', 'owner',
+		'name'
 	];
 
 	public function users()
